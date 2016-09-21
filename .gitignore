@@ -1,0 +1,11 @@
+composer.lock
+vendor
+coverage
+
+.DS_Store
+.idea
+
+*.db
+*.swp
+*.iml
+*.log
