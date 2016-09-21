@@ -11,61 +11,12 @@
  * @date 08/01/15 14:31
  */
 
-namespace Tests\Cases\Migration;
+namespace Mindy\Tests\Orm\Migrations;
 
-use Mindy\Base\Mindy;
-use Mindy\Migration\Migration;
-use Mindy\Tests\Orm\OrmDatabaseTestCase;
-
-class MigrationTest extends OrmDatabaseTestCase
+class MigrationTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * @var Migration
-     */
-    public $m;
-
-    public function setUp()
+    public function testSimple()
     {
-        $this->markTestSkipped('TODO');
-    }
 
-    public function testNameGeneration()
-    {
-        $this->assertEquals('Test_' . time() . '.json', $this->m->generateName());
-    }
-
-    public function testGetExportFields()
-    {
-        $this->assertTrue(is_array($this->m->getFields()));
-        $this->assertTrue(is_string($this->m->exportFields()));
-    }
-
-    public function testHasChanges()
-    {
-        $this->assertEquals(0, count($this->m->getMigrations()));
-
-        $this->assertTrue($this->m->hasChanges());
-        $this->assertTrue($this->m->save());
-
-        $this->assertEquals(1, count($this->m->getMigrations()));
-
-        $this->assertFalse($this->m->hasChanges());
-
-        $this->m = new Migration(new TestChanged, $this->migrationPath);
-        $this->m->setName('Test');
-
-        $this->assertTrue($this->m->hasChanges());
-        sleep(1);
-        $this->assertTrue($this->m->save());
-
-        $this->assertEquals(2, count($this->m->getMigrations()));
-    }
-
-    public function testSave()
-    {
-        // No migrations yet
-        $this->assertTrue($this->m->save());
-        // Has one migration and no changes in model
-        $this->assertFalse($this->m->save());
     }
 }
