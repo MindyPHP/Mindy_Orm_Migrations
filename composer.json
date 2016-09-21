@@ -1,0 +1,36 @@
+{
+  "name": "mindy/orm_migrations",
+  "homepage": "https://github.com/MindyPHP/Mindy_Orm_Migrations",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Mindy\\Orm\\Migrations\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Mindy\\Tests\\Orm\\Migrations\\": "test/"
+    }
+  },
+  "require": {
+    "php": ">=7.0",
+    "symfony/console": "^3.1",
+    "doctrine/migrations": "^1.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "phpunit/php-code-coverage": "*",
+    "mindy/orm": "^3.0"
+  },
+  "authors": [
+    {
+      "name": "Maxim Falaleev",
+      "email": "max@studio107.ru",
+      "homepage": "http://studio107.ru",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/MindyPHP/Mindy_Orm_Migrations/issues?state=open"
+  }
+}
