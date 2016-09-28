@@ -60,9 +60,18 @@ class ModuleConfigurationHelper extends ConfigurationHelper
             mkdir($dir, 0777, true);
         }
         $configuration->setName($module->getId());
-        $configuration->setMigrationsTableName(strtolower($moduleName) . '_migrations');
+        $configuration->setMigrationsTableName($this->normalizeName($moduleName) . '_migrations');
         $configuration->setMigrationsNamespace(strtr('Modules\{id}\Migrations', ['{id}' => $module->getId()]));
         $configuration->setMigrationsDirectory($dir);
         return $configuration;
+    }
+
+    /**
+     * @param string $name
+     * @return string
+     */
+    public function normalizeName(string $name) : string
+    {
+        return trim(strtolower(preg_replace('/(?<![A-Z])[A-Z]/', '_\0', $name)), '_');
     }
 }
