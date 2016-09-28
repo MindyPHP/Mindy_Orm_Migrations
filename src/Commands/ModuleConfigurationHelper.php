@@ -55,7 +55,7 @@ class ModuleConfigurationHelper extends ConfigurationHelper
 
         $module = app()->getModule($moduleName);
 
-        $dir = $module->getBasePath() . '/migrations';
+        $dir = $module->getBasePath() . '/Migrations';
         if (!is_dir($dir)) {
             mkdir($dir, 0777, true);
         }
